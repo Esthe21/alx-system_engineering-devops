@@ -2,8 +2,8 @@
 # displays Best School 10 times.
 
 COUNTER=0
-while [ $COUNTER < 10 ]
+while [ $COUNTER -lt 10 ]
 do
     echo "Best School"
-    COUNTER+=1
+    ((COUNTER++))
 done
