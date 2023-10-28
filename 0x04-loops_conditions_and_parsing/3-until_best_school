@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
-x=0
-until [ $x -gt 9 ]
-do
-echo Best School
-((x++))
-done
+i=0
+until (( i == 10 )); do echo 'Best School'; ((i++)); done
+unset i
