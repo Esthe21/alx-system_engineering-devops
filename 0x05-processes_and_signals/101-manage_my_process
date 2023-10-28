@@ -12,14 +12,14 @@ fi
 
 # Function to start the process
 start_process() {
-    echo "manage_my_process started."
+    echo "manage_my_process started"
     nohup ./manage_my_process > /dev/null 2>&1 &
     echo $! > "$PID_FILE"
 }
 
 # Function to stop the process
 stop_process() {
-    echo "manage_my_process stopped."
+    echo "manage_my_process stopped"
     pid=$(cat "$PID_FILE")
     kill "$pid"
     rm -f "$PID_FILE"
@@ -36,7 +36,7 @@ case "$1" in
     restart)
         stop_process
         start_process
-        echo "manage_my_process restarted."
+        echo "manage_my_process restarted"
         ;;
     *)
         echo "Usage: $0 {start|stop|restart}"
