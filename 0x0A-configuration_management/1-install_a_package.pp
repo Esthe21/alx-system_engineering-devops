@@ -1,6 +1,19 @@
-# This Puppet manifest installs puppet-lint
+# Install Flask version 2.1.0 using pip3
 
-package { 'puppet-lint':
-  ensure   => '2.1.1',
-  provider => 'gem',
+class { 'python':
+  version => 'system',
+}
+
+package { 'python3-pip':
+  ensure => installed,
+}
+
+exec { 'install_flask':
+  command => '/usr/bin/pip3 install flask==2.1.0',
+  path    => ['/usr/bin'],
+  unless  => '/usr/bin/pip3 show flask | grep -q "Version: 2.1.0"',
+  require => [
+    Class['python'],
+    Package['python3-pip'],
+  ],
 }
